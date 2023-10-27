@@ -147,6 +147,15 @@ psf(){
     ps aux | grep -E $1 | grep -v grep
 }
 
+lgp(){
+    pids=$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)
+    ps aux | head -n 1
+    for pid in $pids
+    do
+        ps aux | grep -E $pid | grep -v grep
+    done
+}
+
 # use vim in shell
 bindkey -v
 
