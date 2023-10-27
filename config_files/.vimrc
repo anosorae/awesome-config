@@ -67,7 +67,8 @@ highlight NERDTreeFile ctermfg=14
 set hlsearch
 
 " Change key map
-inoremap vv <Esc>
+inoremap qq <Esc>
+nmap vv <C-v>
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
