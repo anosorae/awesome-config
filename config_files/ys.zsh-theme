@@ -58,7 +58,7 @@ local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 local conda_info='$(conda_prompt_info)'
 conda_prompt_info() {
     if [ -n "$CONDA_DEFAULT_ENV" ]; then
-        echo -n "%{$terminfo[bold]$fg[yellow]%} ($CONDA_DEFAULT_ENV)%{$reset_color%}"
+        echo -n "%{$terminfo[bold]$fg[yellow]%}[$CONDA_DEFAULT_ENV] %{$reset_color%}"
     else
         echo -n ''
     fi
@@ -75,6 +75,7 @@ conda_prompt_info() {
 # % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0
 # $
 PROMPT="
+${conda_info}\
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$reset_color%}@ \
@@ -85,7 +86,6 @@ ${hg_info}\
 ${git_info}\
 ${svn_info}\
 ${venv_info}\
-${conda_info}\
  \
 [%*] $exit_code
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
